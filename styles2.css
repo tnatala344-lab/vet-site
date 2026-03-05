@@ -18,11 +18,19 @@ body {
     align-items: center;
     padding: 10px 60px;
     width: 100%;
-}
+    transition: box-shadow 0.4s ease, background-color 0.4s ease;
 
+}
+/* Підсвічування всієї шапки як у кнопки */
+.header:hover {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(181, 46, 185, 0.4);
+    }
 .logo img {
     height: 100px;
     width: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+
 }
 
 .navigation ul {
@@ -36,18 +44,32 @@ body {
     color: #b67b73;
     font-size: 20px;
     line-height: 1.2;
+     position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Підсвічування посилань у меню */
+.navigation a:hover {
+    color: #f6877d;
+    text-shadow: 0 0 10px rgba(181, 46, 185, 0.4);
 }
 
 .konotop {
     display: flex;
     align-items: center;
     gap: 10px;
+        transition: text-shadow 0.3s ease;
+
 }
 
 .konotop a {
     color: #f8b489;
     text-decoration: none;
     font-size: 22px;
+}
+
+.konotop:hover a {
+    text-shadow: 0 0 8px rgba(181, 46, 185, 0.4);
 }
 
 /* 3. Основний контейнер */
@@ -91,9 +113,12 @@ body {
     transition: 0.3s;
 }
 
+/* Підсвічування кнопок сайдбару в стилі основної кнопки */
 .sidebar a:hover {
-    background-color: #4b1f17;
+    background-color: #f6877d;
+    border-color: #f6877d;
     color: #fff;
+    box-shadow: 0 0 15px rgba(181, 46, 185, 0.4);
 }
 
 /* 5. Головний контент */
@@ -193,7 +218,7 @@ body {
 
 .social-links img:hover {
     transform: scale(1.1);
-    opacity: 0.8;
+    filter: drop-shadow(0 0 10px rgba(181, 46, 185, 0.4));
 }
 
 /* 7. Адаптація для мобільних пристроїв (Main_2) */
