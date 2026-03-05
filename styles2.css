@@ -1,0 +1,280 @@
+/* 1. Загальні налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Abel", sans-serif;
+    background-color: #fff;
+    overflow-x: hidden; /* Запобігає появі горизонтальної прокрутки */
+}
+
+/* 2. Шапка (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    width: 100%;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #b67b73;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.konotop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.konotop a {
+    color: #f8b489;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* 3. Основний контейнер */
+.container {
+    display: flex;
+    flex-direction: row; /* Сайтбар ліворуч, контент праворуч */
+    justify-content: space-between;
+    min-height: auto; /* Прибрано фіксовану висоту 600px */
+    padding: 0 1px;
+    margin-bottom: -40px; /* ПІДТЯГУЄМО ФУТЕР ВГОРУ */
+}
+
+/* 4. Бічна панель (Sidebar) */
+.sidebar {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    min-height: 450px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #4b1f17;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4b1f17;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #4b1f17;
+    color: #fff;
+}
+
+/* 5. Головний контент */
+.content_1 {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: -30px;
+}
+
+.text-section_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 80px; /* ОПУЩЕНО НИЖЧЕ */
+    margin-left: 10px; /* Збільште до 100px-120px, якщо треба ще далі */
+    padding-left: 0; /* ЗМІЩЕНО ПРАВІШЕ */
+    margin-top: 0;
+    position: relative;
+    z-index: 5;
+}
+
+.text-section_1 h1 {
+    color: #4b1f17;
+    font-size: 75px;
+    line-height: 1;
+    margin-bottom: 10px;
+   font-weight: bold;
+   white-space: nowrap;
+}
+
+.text-section_1 h2 {
+    color: #4b1f17;
+    font-size: 70px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.button {
+    display: inline-block;
+    background-color: #f6877d;
+    color: white;
+    padding: 15px 45px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(246, 135, 125, 0.3);
+    transition: 0.3s;
+    margin-top: 50px; /* Чим більше число, тим ширше буде простір */
+}
+
+.button:hover {
+    background-color: #e5766c;
+    box-shadow: 0 0 20px rgba(27, 16, 177, 0.6);
+    transform: translateY(-3px);
+}
+
+.image-section_1 img {
+    width: 550px;
+    height: auto;
+    display: block; /* Прибирає зазор знизу */
+    margin-top: 80px; /* Збільште це значення, щоб опустити картинку НИЖЧЕ */
+    margin-left: 1px; /* Залишаємо відступ зліва, як було */
+    
+}
+
+/* 6. Футер */
+.footer {
+    padding: 10px 0; /* Зменшено висоту футера */
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.social-links img {
+    width: 40px;
+    height: auto;
+    transition: 0.3s;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* 7. Адаптація для мобільних пристроїв (Main_2) */
+@media screen and (max-width: 768px) {
+    
+    /* Шапка: лого та меню стають у стовпчик */
+    .header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .navigation ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Контейнер: сайтбар і контент один під одним */
+    .container {
+        flex-direction: column;
+        padding: 0 10px;
+        margin-bottom: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding-top: 20px;
+        order: 2; /* Сайтбар під головним контентом */
+    }
+
+    .sidebar ul {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    /* Адаптація таблиць та контенту */
+    .content_1 {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+    }
+
+    .text-section_1 {
+        margin-left: 0;
+        padding-top: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Зменшуємо шрифти для мобільних */
+    .text-section_1 h1 {
+        font-size: 36px;
+        white-space: normal; /* Дозволяємо перенос тексту */
+    }
+
+    .text-section_1 h2 {
+        font-size: 32px;
+        white-space: normal;
+        margin-bottom: 20px;
+    }
+
+    /* РОБОТА З ТАБЛИЦЯМИ (Дуже важливо для Main_2) */
+    .table-container {
+        width: 100%;
+        overflow-x: auto; /* Додає горизонтальну прокрутку, якщо таблиця не вміщується */
+        margin-bottom: 20px;
+    }
+
+    table {
+        min-width: 500px; /* Гарантує, що текст у таблиці не злипнеться */
+    }
+
+    /* Картинка підлаштовується під ширину */
+    .image-section_1 img {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 30px;
+        margin-left: 0;
+    }
+}

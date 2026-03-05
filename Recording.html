@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформлення замовлення — Друзі Тварин</title>
+    <link rel="stylesheet" href="styles3(Recording).css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="logo">
+            <img src="./логотип.png" alt="Логотип">
+        </div> 
+        <nav class="navigation">
+            <ul>
+                <li class="nav-item"><a href="#">Особистий кабінет</a></li>
+                <li class="nav-item"><a href="./about.html">Про нас</a></li>
+                <li class="nav-item"><a href="#">Новини</a></li>
+                <li class="nav-item"><a href="./Kontaktu.html">Контакти</a></li>
+                <li class="nav-item"><a href="#">Блог</a></li>
+            </ul>
+        </nav>
+
+        <div class="konotop">
+            <img src="./location_on.jpg" alt="Локація" class="location-icon">
+            <a href="#" class="location-link">Конотоп</a>
+        </div>
+    </header>
+
+    <main class="order-container">
+        <h1 class="order-title">Оформлення замовлення</h1>
+        <a href="./index.html" class="back-link">&lt; НАЗАД</a>
+
+        <form action="#" method="post" class="order-form">
+            <div class="form-group">
+                <label for="fio" class="form-label">ПІБ власника:</label>
+                <input type="text" id="fio" name="fio" class="form-input" placeholder="Константинопольський Костянтин">
+            </div>
+            
+            <div class="form-group">
+                <label for="service" class="form-label">Оберіть послугу:</label>
+                <select id="service" name="service" class="form-select">
+                    <option value="consultation">Консультація терапевта</option>
+                    <option value="vaccination">Вакцинація</option>
+                    <option value="checkup">Профілактичний огляд</option>
+                    <option value="hygiene">Гігієнічні процедури</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date" class="form-label">Бажана дата та час:</label>
+                <input type="datetime-local" id="date" name="date" class="form-input-date">
+            </div>
+
+            <div class="form-group">
+                <label for="problem" class="form-label">Опис проблеми:</label>
+                <textarea id="problem" name="problem" class="form-textarea" placeholder="Опишіть симптоми вашого улюбленця..."></textarea>
+            </div>
+
+            <button type="submit" class="button-submit">Записатись</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <ul class="social-links">
+                <li class="social-item"><a href="#"><img src="./Instagram.jpg" alt="Instagram"></a></li>
+                <li class="social-item"><a href="#"><img src="./Facebook.jpg" alt="Facebook"></a></li>
+                <li class="social-item"><a href="#"><img src="./Youtube.jpg" alt="Youtube"></a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

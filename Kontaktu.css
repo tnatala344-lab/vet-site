@@ -1,0 +1,208 @@
+/* 1. Загальні налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Abel", sans-serif;
+    background-color: #fff;
+    overflow-x: hidden; /* Запобігає появі горизонтальної прокрутки */
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* 2. Шапка (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    width: 100%;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #b67b73;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.konotop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.konotop a {
+    color: #f8b489;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* Стилізація секції з контактною інформацією */
+.contact-info {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px dashed #f8b489; /* Штрихова рамка в кольорі акценту */
+}
+
+.contact-info h1 {
+    color: #b67b73;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Робимо заголовок великими літерами */
+    letter-spacing: 1px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Стилізація посилань (Телефон та Email) */
+.contact-info a {
+    color: #b67b73;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Псевдокласи стану (ЛР №6) */
+.contact-info a:hover {
+    background-color: #f8b489;
+    color: white;
+    text-decoration: none;
+}
+
+/* Стилізація жирного тексту (Адреса, Телефон тощо) */
+.contact-info strong {
+    color: #2c3e50;
+    min-width: 100px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #f6877d;
+    color: white;
+    padding: 15px 45px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(246, 135, 125, 0.3);
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #e5766c;
+    transform: translateY(-3px);
+}
+
+/* 6. Футер */
+.footer {
+    padding: 10px 0; /* Зменшено висоту футера */
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.social-links img {
+    width: 40px;
+    height: auto;
+    transition: 0.3s;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* 7. Адаптація для мобільних пристроїв (Media Queries) */
+@media screen and (max-width: 768px) {
+    
+    /* Шапка: лого, меню та місто стають у стовпчик */
+    .header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .navigation ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Блок контактної інформації (Box Model) */
+    .contact-info {
+        padding: 20px 15px; /* Зменшуємо внутрішні відступи */
+        margin: 10px; /* Додаємо зовнішні відступи, щоб не торкався країв */
+        border-style: solid; /* Змінюємо dashed на solid для чіткості на малих екранах */
+    }
+
+    .contact-info h1 {
+        font-size: 26px; /* Зменшуємо заголовок */
+        text-align: center;
+    }
+
+    .contact-info p {
+        font-size: 16px;
+        flex-direction: column; /* Текст під іконкою/назвою */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    /* Кнопка "Записатись" на мобільному */
+    .button {
+        display: block; /* Робимо блочною */
+        width: 100%; /* На всю ширину контейнера */
+        text-align: center;
+        padding: 15px 20px;
+        font-size: 18px;
+    }
+
+    /* Соціальні мережі у футері */
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-links img {
+        width: 35px;
+    }
+}

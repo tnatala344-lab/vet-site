@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Abel", sans-serif;
+    background-color: #fff;
+    overflow-x: hidden; /* Запобігає появі горизонтальної прокрутки */
+}
+
+/* 2. Шапка (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    width: 100%;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #b67b73;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.konotop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.konotop a {
+    color: #f8b489;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+
+
+
+
+/* --- MAIN CONTENT (ФОРМА) --- */
+.order-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Abel", sans-serif;
+}
+
+.order-title {
+    color: #b67b73;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #0d9730;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-input, .form-select, .form-input-date, .form-textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.button-submit {
+    background-color: #0d9730;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.button-submit:hover {
+    background-color: #0a7a27;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 6. Футер */
+.footer {
+    padding: 10px 0; /* Зменшено висоту футера */
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.social-links img {
+    width: 40px;
+    height: auto;
+    transition: 0.3s;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* 7. Адаптація для мобільних пристроїв (Recording) */
+@media screen and (max-width: 768px) {
+    
+    /* Шапка: переводимо в стовпчик для економії місця */
+    .header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .navigation ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Контейнер форми (Box Model у дії) */
+    .order-container {
+        width: 95%; /* Залишаємо маленькі відступи від країв екрана */
+        margin: 20px auto;
+        padding: 15px; /* Внутрішні відступи для мобільного */
+    }
+
+    .order-title {
+        font-size: 24px;
+    }
+
+    /* Поля вводу: робимо їх зручнішими для дотику пальцем */
+    .form-input, 
+    .form-select, 
+    .form-input-date, 
+    .form-textarea {
+        padding: 15px; /* Збільшуємо Padding, щоб зручніше було влучити пальцем */
+        font-size: 16px; /* Стандарт для мобільних форм */
+    }
+
+    /* Кнопка на всю ширину */
+    .button-submit {
+        width: 100%;
+        padding: 18px;
+        font-size: 20px;
+    }
+
+    /* Футер стає компактнішим */
+    .footer {
+        margin-top: 40px;
+    }
+}

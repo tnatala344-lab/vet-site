@@ -1,0 +1,287 @@
+/* 1. Загальні налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Основа ЛР №7: внутрішні відступи не розширюють блоки */
+}
+
+body {
+    font-family: "Abel", sans-serif;
+    background-color: #fff;
+    overflow-x: hidden; /* Запобігає появі горизонтальної прокрутки на мобільних */
+}
+
+/* 2. Шапка (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    width: 100%;
+    transition: box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+/* Підсвічування всієї шапки як у кнопки */
+.header:hover {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(181, 46, 185, 0.4);
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(181, 46, 185, 0.4));
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #b67b73;
+    font-size: 20px;
+    line-height: 1.2;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Підсвічування посилань у меню */
+.navigation a:hover {
+    color: #f6877d;
+    text-shadow: 0 0 10px rgba(181, 46, 185, 0.4);
+}
+
+.konotop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: text-shadow 0.3s ease;
+}
+
+.konotop a {
+    color: #f8b489;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.konotop:hover a {
+    text-shadow: 0 0 8px rgba(181, 46, 185, 0.4);
+}
+
+/* 3. Основний контейнер */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: auto;
+    padding: 0 40px;
+    margin-bottom: -40px;
+}
+
+/* 4. Бічна панель (Sidebar) */
+.sidebar {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    min-height: 450px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #4b1f17;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4b1f17;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Підсвічування кнопок сайдбару в стилі основної кнопки */
+.sidebar a:hover {
+    background-color: #f6877d;
+    border-color: #f6877d;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(181, 46, 185, 0.4);
+}
+
+/* 5. Головний контент */
+.content {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: -30px;
+}
+
+.text-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 80px;
+    margin-left: 80px;
+    z-index: 5;
+}
+
+.text-section h1 {
+    color: #4b1f17;
+    font-size: 75px;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.text-section h2 {
+    color: #4b1f17;
+    font-size: 70px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.button {
+    display: inline-block;
+    background-color: #f6877d;
+    color: white;
+    padding: 15px 45px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(181, 46, 185, 0.4);
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #e5766c;
+    box-shadow: 0 0 20px rgba(181, 46, 185, 0.4);
+    transform: translateY(-3px);
+}
+
+.image-section img {
+    width: 550px;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+/* 6. Футер */
+.footer {
+    padding: 10px 0;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.social-links img {
+    width: 40px;
+    height: auto;
+    transition: 0.3s;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(181, 46, 185, 0.4));
+}
+
+/* 7. Адаптація для мобільних пристроїв (Media Queries) */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .navigation ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 0 15px;
+        margin-bottom: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding-top: 20px;
+        order: 2; /* Цифри переміщуються під текст */
+    }
+
+    .sidebar ul {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-section {
+        margin-left: 0;
+        padding-top: 20px;
+        align-items: center;
+    }
+
+    .text-section h1 {
+        font-size: 40px;
+        white-space: normal;
+    }
+
+    .text-section h2 {
+        font-size: 35px;
+        white-space: normal;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .image-section img {
+        width: 100%;
+        max-width: 350px;
+        margin-top: 30px;
+    }
+}
