@@ -20,8 +20,10 @@ body {
     align-items: center;
     padding: 10px 60px;
     width: 100%;
-    transition: box-shadow 0.4s ease, background-color 0.4s ease;
-
+    background-color: #fff; /* Робить білий фон для контрасту з тінню */
+    transition: box-shadow 0.4s ease; /* Плавна анімація сяйва */
+    position: relative;
+    z-index: 100;
 }
 
 /* Підсвічування всієї шапки як у кнопки */

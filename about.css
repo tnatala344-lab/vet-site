@@ -18,8 +18,10 @@ body {
     align-items: center;
     padding: 10px 60px;
     width: 100%;
-    transition: box-shadow 0.4s ease, background-color 0.4s ease;
-
+    background-color: #fff; /* Робить білий фон для контрасту з тінню */
+    transition: box-shadow 0.4s ease; /* Плавна анімація сяйва */
+    position: relative;
+    z-index: 100;
 }
 
 /* Підсвічування всієї шапки як у кнопки */
@@ -119,6 +121,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
+    padding: 10px;
 }
 
 .services-list li {
@@ -133,6 +136,14 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    padding: 50px;
+}
+
+.team h2 {
+    margin-top: 20px;  /* Відступ безпосередньо над написом "Наша команда" */
+    color: #b67b73;
+    font-size: 28px;
+    margin-bottom: 30px; /* Також збільшимо простір до самої таблиці */
 }
 
 .team-table th, .team-table td {
@@ -143,11 +154,11 @@ body {
 
 .team-table thead {
     background-color: #b67b73;
-    color: white;
+    color: rgb(220, 62, 62);
 }
 
 .team-table tr:nth-child(even) {
-    background-color: #fdfaf9;
+    background-color: #ffffff;
 }
 
 /* Таблиця Розклад */
@@ -173,8 +184,9 @@ body {
 }
 
 /* ВІДГУКИ */
+
 .reviews {
-    padding: 60px 0;
+    padding: 1px 0;
     background-color: #fdfaf9;
 }
 
@@ -185,13 +197,22 @@ body {
     margin-bottom: 30px;
     box-shadow: 0 10px 25px rgba(182, 123, 115, 0.1);
 }
-
+.reviews h2 {
+    color: #4e19b6; /* Наприклад, такий самий фіолетовий, як у головного заголовка */
+    text-align: start; /* Центрування для кращого вигляду */
+    margin-bottom: 40px;
+}
 /* Форма контактів */
 .contact-container {
     display: flex;
     gap: 50px;
 }
 
+.contacts {
+    color: #4e19b6; 
+    text-align: start;
+    margin-bottom: 40px;
+}
 .contact-container form {
     flex: 1;
     display: flex;
@@ -219,7 +240,22 @@ body {
     border-radius: 12px;
 }
 
+.contact-container button {
+    background-color: #b67b73; /* Ваш основний колір */
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Плавність ефектів */
+}
 
+/* Ефект при наведенні курсору (Hover) */
+.contact-container button:hover {
+    background-color: #f6877d; /* Зміна кольору на світліший */
+    box-shadow: 0 0 15px rgba(181, 46, 185, 0.6); /* Фіолетове підсвічування */
+    transform: translateY(-2px); /* Легке підняття кнопки вгору */
+}
 /* 6. Футер */
 .footer {
     padding: 10px 0; /* Зменшено висоту футера */
