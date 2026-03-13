@@ -32,6 +32,16 @@
             <p>Ми — команда професіоналів, віддана здоров'ю та щастю ваших улюбленців. 
                Наша клініка працює вже понад 10 років, надаючи якісні ветеринарні послуги.
             </p>
+
+            <div id="imageSlider"> 
+                <img src="./1.jpg" alt="Зображення 1"> 
+                <img src="./2.jpg" alt="Зображення 2"> 
+                <img src="./3.jpg" alt="Зображення 3"> 
+
+                <button id="prevBtn">Попереднє</button> 
+                <button id="nextBtn">Наступне</button> 
+            </div>
+
         </section>
         <section id="our-services" class="services">
             <h2>Наші послуги</h2>
@@ -159,7 +169,7 @@
         </section>
         <section id="contact-us" class="contacts">
             <div class="contact-container">
-                <form action="/submit-form" method="post">
+                <form id="contactForm">
                     <h2>Зв'яжіться з нами</h2> 
                     <label for="name">Ім'я:</label>
                     <input type="text" id="name" name="name" required>

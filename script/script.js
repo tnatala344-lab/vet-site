@@ -1,36 +1,51 @@
-document.addEventListener('DOMContentLoaded', function() { 
-    console.log('DOM повністю завантажений'); 
+document.addEventListener('DOMContentLoaded', function() 
+    { 
+    console.log('DOM fully loaded and parsed'); 
 
-    // 1. Анімація посилань навігації
-    const navLinks = document.querySelectorAll('.navigation a');
-    navLinks.forEach(link => { 
-        link.addEventListener('mouseover', function() { 
-            this.style.transition = 'color 0.3s ease'; // Додаємо плавність
-            this.style.color = '#f8b489'; 
-        }); 
-        link.addEventListener('mouseout', function() { 
-            this.style.color = '#b67b73'; 
-        }); 
-    });
-
-    // 2. Робота з формою
-    // Знаходимо форму за допомогою селектора, оскільки ID може не бути
-    const contactForm = document.querySelector('.contact-container form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) { 
-            e.preventDefault(); 
-             
-            // Отримуємо дані
-            const name = document.getElementById('name').value; 
-            const email = document.getElementById('email').value; 
-            const message = document.getElementById('message').value; 
-             
-            console.log('Дані отримано:', { name, email, message }); 
-             
-            // Ефект успішної відправки
-            alert(`Дякуємо, ${name}! Ваше повідомлення надіслано.`); 
-            this.reset(); 
-        });
-    }
+    document.querySelectorAll('.navigation a').forEach(link => { 
+    link.addEventListener('mouseover', function() { 
+        this.style.color = '#f8b489'; 
+    }); 
+    link.addEventListener('mouseout', function() { 
+        this.style.color = '#b67b73'; 
+    }); 
 });
+
+document.getElementById('contactForm').addEventListener('submit', function(e) { 
+    e.preventDefault(); 
+     
+    let name = document.getElementById('name').value; 
+    let email = document.getElementById('email').value; 
+    let message = document.getElementById('message').value; 
+     
+    console.log('Форма відправлена:'); 
+    console.log('Ім\'я:', name); 
+    console.log('Email:', email); 
+    console.log('Повідомлення:', message); 
+     
+    // Тут можна додати код для відправки даних на сервер 
+     
+    alert('Дякуємо за ваше повідомлення!'); 
+    this.reset(); 
+});
+});
+
+let currentSlide = 0; 
+const slides = document.querySelectorAll('#imageSlider img'); 
+ 
+function showSlide(n) { 
+    slides.forEach(slide => slide.style.display = 'none'); 
+    slides[n].style.display = 'block'; 
+} 
+ 
+document.getElementById('nextBtn').addEventListener('click', function() { 
+    currentSlide = (currentSlide + 1) % slides.length; 
+    showSlide(currentSlide); 
+}); 
+ 
+document.getElementById('prevBtn').addEventListener('click', function() { 
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length; 
+    showSlide(currentSlide); 
+}); 
+ 
+showSlide(currentSlide);

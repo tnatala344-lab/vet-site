@@ -49,7 +49,7 @@ body {
 
 .title {
     font-size: 36px;
-    color: #4e19b6;
+    color: #b64819;
     text-align: center;
     margin-bottom: 60px;
 }
@@ -148,6 +148,46 @@ body {
     text-align: center;
     font-weight: bold;
 }
+
+/* Налаштування слайдера */
+#imageSlider {
+    position: relative;
+    max-width: 800px; /* Можеш змінити ширину під свій дизайн */
+    margin: 20px auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+#imageSlider img {
+    width: 100%;           /* Картинка розтягується на всю ширину контейнера */
+    height: 450px;         /* ФІКСОВАНА ВИСОТА для всіх картинок */
+    object-fit: cover;     /* Це головне: картинка обрізається, а не стискається */
+    display: none;         /* Спочатку ховаємо всі (JS покаже першу) */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Стиль для кнопок слайдера під Хто ми*/
+#prevBtn, #nextBtn {
+    background-color: #f6877d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Abel", sans-serif;
+    transition: 0.3s;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    background-color: #e5766c;
+    transform: scale(1.05);
+}
+
+
+
+
 
 .contact-container label {
     display: block;
