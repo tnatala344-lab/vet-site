@@ -2,13 +2,16 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Основа ЛР №7: внутрішні відступи не розширюють блоки */
+    box-sizing: border-box;
 }
 
 body {
     font-family: "Abel", sans-serif;
     background-color: #fff;
-    overflow-x: hidden; /* Запобігає появі горизонтальної прокрутки на мобільних */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Щоб футер завжди був притиснутий до низу */
 }
 
 /* 2. Шапка (Header) */
@@ -18,24 +21,12 @@ body {
     align-items: center;
     padding: 10px 60px;
     width: 100%;
-    transition: box-shadow 0.4s ease, background-color 0.4s ease;
-}
-
-/* Підсвічування всієї шапки як у кнопки */
-.header:hover {
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(181, 46, 185, 0.4);
+    border-bottom: 1px solid #eee;
 }
 
 .logo img {
     height: 100px;
     width: auto;
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(181, 46, 185, 0.4));
 }
 
 .navigation ul {
@@ -49,21 +40,12 @@ body {
     color: #b67b73;
     font-size: 20px;
     line-height: 1.2;
-    position: relative;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* Підсвічування посилань у меню */
-.navigation a:hover {
-    color: #f6877d;
-    text-shadow: 0 0 10px rgba(181, 46, 185, 0.4);
 }
 
 .konotop {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: text-shadow 0.3s ease;
 }
 
 .konotop a {
@@ -72,27 +54,22 @@ body {
     font-size: 22px;
 }
 
-.konotop:hover a {
-    text-shadow: 0 0 8px rgba(181, 46, 185, 0.4);
-}
-
 /* 3. Основний контейнер */
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    min-height: auto;
-    padding: 0 40px;
-    margin-bottom: -40px;
+    justify-content: flex-start; /* Строге вирівнювання зліва */
+    padding: 0 60px;
+    flex: 1; /* Займає весь простір між хедером і футером */
 }
 
 /* 4. Бічна панель (Sidebar) */
 .sidebar {
-    width: 150px;
+    width: 10px; /* Ваша фіксована ширина */
+    flex-shrink: 0; 
     display: flex;
     justify-content: center;
     padding-top: 50px;
-    min-height: 450px;
 }
 
 .sidebar ul {
@@ -117,29 +94,27 @@ body {
     transition: 0.3s;
 }
 
-/* Підсвічування кнопок сайдбару в стилі основної кнопки */
-.sidebar a:hover {
+/* Активна кнопка та ефект наведення (уніфіковані тіні) */
+.sidebar a:hover, .sidebar a.active {
     background-color: #f6877d;
     border-color: #f6877d;
     color: #fff;
-    box-shadow: 0 0 15px rgba(181, 46, 185, 0.4);
+    box-shadow: 0 4px 15px rgba(246, 135, 125, 0.3);
 }
 
 /* 5. Головний контент */
 .content {
     display: flex;
     flex: 1;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin-top: -30px;
+    justify-content: flex-start;
 }
 
 .text-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 80px;
-    margin-left: 80px;
+    padding-top: 30px;
+    margin-left: 80px; /* Відступ тексту від 10-піксельного сайдбару */
     z-index: 5;
 }
 
@@ -169,13 +144,12 @@ body {
     text-decoration: none;
     font-size: 22px;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(181, 46, 185, 0.4);
+    box-shadow: 0 4px 15px rgba(246, 135, 125, 0.3);
     transition: 0.3s;
 }
 
 .button:hover {
     background-color: #e5766c;
-    box-shadow: 0 0 20px rgba(181, 46, 185, 0.4);
     transform: translateY(-3px);
 }
 
@@ -188,11 +162,9 @@ body {
 
 /* 6. Футер */
 .footer {
-    padding: 10px 0;
+    padding: 5px 0;
     background-color: #fff;
     border-top: 1px solid #eee;
-    position: relative;
-    z-index: 10;
 }
 
 .footer-container {
@@ -211,15 +183,9 @@ body {
 .social-links img {
     width: 40px;
     height: auto;
-    transition: 0.3s;
 }
 
-.social-links img:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px rgba(181, 46, 185, 0.4));
-}
-
-/* 7. Адаптація для мобільних пристроїв (Media Queries) */
+/* 7. Адаптація */
 @media screen and (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -227,23 +193,16 @@ body {
         gap: 15px;
     }
 
-    .navigation ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
     .container {
         flex-direction: column;
-        padding: 0 15px;
-        margin-bottom: 0;
+        padding: 0 20px;
     }
 
     .sidebar {
         width: 100%;
         min-height: auto;
+        order: 2; /* Панель під текст */
         padding-top: 20px;
-        order: 2; /* Цифри переміщуються під текст */
     }
 
     .sidebar ul {
@@ -264,19 +223,9 @@ body {
         align-items: center;
     }
 
-    .text-section h1 {
-        font-size: 40px;
+    .text-section h1, .text-section h2 {
+        font-size: 36px;
         white-space: normal;
-    }
-
-    .text-section h2 {
-        font-size: 35px;
-        white-space: normal;
-    }
-
-    .button {
-        width: 100%;
-        max-width: 280px;
     }
 
     .image-section img {

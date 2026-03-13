@@ -1,4 +1,4 @@
-/* 1. Загальні налаштування */
+/* 1. Глобальні налаштування (Box Model) */
 * {
     margin: 0;
     padding: 0;
@@ -8,47 +8,29 @@
 body {
     font-family: "Abel", sans-serif;
     background-color: #fff;
-    overflow-x: hidden; /* Запобігає появі горизонтальної прокрутки */
+    color: #444;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Запобігає горизонтальній прокрутці */
 }
 
-/* 2. Шапка (Header) */
+/* 2. Шапка (Header) - Flexbox */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 60px;
     width: 100%;
-    background-color: #fff; /* Робить білий фон для контрасту з тінню */
-    transition: box-shadow 0.4s ease; /* Плавна анімація сяйва */
-    position: relative;
-    z-index: 100;
-}
-
-/* Підсвічування всієї шапки як у кнопки */
-.header:hover {
-    background-color: #fff;
-    box-shadow: 0 0 20px rgba(181, 46, 185, 0.4);
 }
 
 .logo img {
     height: 100px;
     width: auto;
-    transition: filter 0.3s ease, transform 0.3s ease;
-
-}
-
-.logo img:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(181, 46, 185, 0.4));
 }
 
 .navigation ul {
-    list-style-type: none;
+    list-style: none;
     display: flex;
     gap: 50px;
-    
 }
 
 .navigation a {
@@ -56,14 +38,6 @@ body {
     color: #b67b73;
     font-size: 20px;
     line-height: 1.2;
-    position: relative;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* Підсвічування посилань у меню */
-.navigation a:hover {
-    color: #f6877d;
-    text-shadow: 0 0 10px rgba(181, 46, 185, 0.4);
 }
 
 .konotop {
@@ -78,37 +52,30 @@ body {
     font-size: 22px;
 }
 
-.konotop:hover a {
-    text-shadow: 0 0 8px rgba(181, 46, 185, 0.4);
-}
-
-/* Стилізація секції з контактною інформацією */
+/* 3. Секція контактів (Box Model) */
 .contact-info {
     padding: 30px;
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 12px;
     margin-bottom: 30px;
-    border: 1px dashed #f8b489; /* Штрихова рамка в кольорі акценту */
 }
 
 .contact-info h1 {
     color: #b67b73;
     font-size: 32px;
     margin-bottom: 20px;
-    text-transform: uppercase; /* Робимо заголовок великими літерами */
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .contact-info p {
     font-size: 18px;
     margin-bottom: 12px;
-    color: #444;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Стилізація посилань (Телефон та Email) */
 .contact-info a {
     color: #b67b73;
     text-decoration: none;
@@ -118,40 +85,32 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Псевдокласи стану (ЛР №6) */
+/* Псевдоклас стану */
 .contact-info a:hover {
     background-color: #f8b489;
-    color: white;
-    text-decoration: none;
+    color: #fff;
 }
 
-/* Стилізація жирного тексту (Адреса, Телефон тощо) */
 .contact-info strong {
     color: #2c3e50;
     min-width: 100px;
 }
 
+/* 4. Кнопка */
 .button {
     display: inline-block;
     background-color: #f6877d;
-    color: white;
     padding: 15px 45px;
     border-radius: 30px;
     text-decoration: none;
     font-size: 22px;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(246, 135, 125, 0.3);
-    transition: 0.3s;
+    transition: opacity 0.3s ease;
 }
 
-.button:hover {
-    background-color: #e5766c;
-    transform: translateY(-3px);
-}
-
-/* 6. Футер */
+/* 5. Футер */
 .footer {
-    padding: 10px 0; /* Зменшено висоту футера */
+    padding: 15px 0;
     background-color: #fff;
     border-top: 1px solid #eee;
     position: relative;
@@ -174,65 +133,38 @@ body {
 .social-links img {
     width: 40px;
     height: auto;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
 }
 
-.social-links img:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px rgba(181, 46, 185, 0.4));
-}
-
-/* 7. Адаптація для мобільних пристроїв (Media Queries) */
 @media screen and (max-width: 768px) {
-    
-    /* Шапка: лого, меню та місто стають у стовпчик */
-    .header {
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .navigation ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    /* Блок контактної інформації (Box Model) */
+    /* 1. Налаштовуємо відступи блоку без рамки */
     .contact-info {
-        padding: 20px 15px; /* Зменшуємо внутрішні відступи */
-        margin: 10px; /* Додаємо зовнішні відступи, щоб не торкався країв */
-        border-style: solid; /* Змінюємо dashed на solid для чіткості на малих екранах */
+        padding: 20px 0; /* Зменшуємо внутрішні відступи, бо рамки немає */
+        margin: 0;       /* Прибираємо зовнішні відступи, щоб текст був ближче до країв */
+        border: none;    /* Гарантуємо відсутність ліній */
+        text-align: center; /* На мобільному заголовок краще виглядає по центру */
     }
 
+    /* 2. Заголовок "КОНТАКТИ" */
     .contact-info h1 {
-        font-size: 26px; /* Зменшуємо заголовок */
-        text-align: center;
+        font-size: 24px; /* Зменшуємо шрифт для малих екранів */
+        margin-bottom: 20px;
     }
 
+    /* 3. Список контактів (Адреса, тел, пошта) */
     .contact-info p {
         font-size: 16px;
-        flex-direction: column; /* Текст під іконкою/назвою */
-        align-items: flex-start;
-        gap: 5px;
+        flex-direction: column; /* Ставимо іконку над текстом або просто в стовпчик */
+        align-items: center;    /* Центруємо елементи */
+        gap: 8px;
+        margin-bottom: 20px;
     }
 
-    /* Кнопка "Записатись" на мобільному */
+    /* 4. Робимо кнопку на весь екран */
     .button {
-        display: block; /* Робимо блочною */
-        width: 100%; /* На всю ширину контейнера */
-        text-align: center;
-        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        padding: 15px;
         font-size: 18px;
-    }
-
-    /* Соціальні мережі у футері */
-    .social-links {
-        gap: 15px;
-    }
-
-    .social-links img {
-        width: 35px;
     }
 }
