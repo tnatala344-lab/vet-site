@@ -9,6 +9,9 @@ body {
     font-family: "Abel", sans-serif;
     background-color: #fff;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Щоб футер завжди був внизу */
 }
 
 /* 2. Шапка (Header) */
@@ -36,6 +39,11 @@ body {
     text-decoration: none;
     color: #b67b73;
     font-size: 20px;
+    transition: 0.3s;
+}
+
+.navigation a:hover {
+    color: #f8b489;
 }
 
 .konotop {
@@ -54,13 +62,14 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start; /* Вирівнювання від початку лівого краю */
-    padding: 0 60px; /* Ті самі відступи, що й у хедері */
+    justify-content: flex-start;
+    padding: 0 60px;
+    flex: 1; /* Заповнює простір до футера */
 }
 
 /* 4. Бічна панель (Sidebar) */
 .sidebar {
-    width: 10px; /* Фіксуємо ширину, щоб вона не змінювалася */
+    width: 50px; /* Трохи розширив, щоб кола не злипалися з краєм */
     flex-shrink: 0; 
     display: flex;
     justify-content: center;
@@ -89,7 +98,6 @@ body {
     transition: 0.3s;
 }
 
-/* Стиль для активної кнопки */
 .sidebar a.active {
     background-color: #f6877d;
     border-color: #f6877d;
@@ -107,7 +115,7 @@ body {
 .content {
     display: flex;
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-between; /* Розставляє текст і фото по краях */
     align-items: flex-start;
 }
 
@@ -116,12 +124,13 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding-top: 80px;
-    margin-left: 80px;
+    margin-left: 60px;
+    max-width: 500px; /* Обмежуємо ширину тексту, щоб він не заважав картинці */
 }
 
 .text-section h1 {
     color: #4b1f17;
-    font-size: 70px;
+    font-size: 65px; /* Трохи зменшив для багаторядкового тексту */
     line-height: 1.1;
     margin-bottom: 40px;
     font-weight: bold;
@@ -146,21 +155,25 @@ body {
 }
 
 .image-section img {
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     height: auto;
     margin-top: 80px;
+    border-radius: 15px; /* М'які кути для фото обладнання */
 }
 
 /* 6. Футер */
 .footer {
-    padding: 10px 0;
+    padding: 20px 0;
     border-top: 1px solid #eee;
+    background-color: #fff;
 }
 
 .footer-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 .social-links {
@@ -170,17 +183,39 @@ body {
 }
 
 .social-links img {
-    width: 40px;
+    width: 35px;
 }
 
 /* 7. Адаптація */
 @media screen and (max-width: 768px) {
-    .header { flex-direction: column; padding: 20px; }
-    .container { flex-direction: column; }
-    .sidebar { width: 100%; order: 2; padding-top: 20px; min-height: auto; }
+    .header { flex-direction: column; padding: 20px; gap: 15px; }
+    .navigation ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .container { flex-direction: column; padding: 0 20px; }
+    
+    .sidebar { 
+        width: 100%; 
+        order: 3; /* Сайдбар вниз */
+        padding-top: 20px; 
+    }
+    
     .sidebar ul { display: flex; justify-content: center; gap: 10px; }
+    
     .content { flex-direction: column; align-items: center; text-align: center; }
-    .text-section { margin-left: 0; padding-top: 20px; align-items: center; }
-    .text-section h1 { font-size: 36px; white-space: normal; }
-    .image-section img { width: 100%; max-width: 400px; margin-top: 30px; }
+    
+    .text-section { 
+        margin-left: 0; 
+        padding-top: 40px; 
+        align-items: center; 
+        order: 1;
+    }
+    
+    .text-section h1 { 
+        font-size: 32px; 
+        white-space: normal; 
+    }
+    
+    .image-section { order: 2; }
+    .image-section img { width: 100%; max-width: 350px; margin-top: 30px; }
+    
+    .konotop { order: -1; }
 }

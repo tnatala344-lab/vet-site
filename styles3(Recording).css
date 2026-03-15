@@ -5,21 +5,29 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Abel", sans-serif;
     background-color: #fff;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Гарантує, що футер буде внизу */
 }
 
-/* 2. ОНОВЛЕНА ШАПКА (Header) — тепер однакова на всіх сторінках */
+/* 2. Шапка (Header) */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 60px;
     width: 100%;
-    background-color: #fff;        /* Додано для однаковості */
-    border-bottom: 1px solid #eee; /* Додано для чіткої межі */
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    z-index: 100;
 }
 
 .logo img {
@@ -38,14 +46,17 @@ body {
     color: #b67b73;
     font-size: 20px;
     line-height: 1.2;
-    position: relative;
+    transition: 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #f8b489;
 }
 
 .konotop {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: text-shadow 0.3s ease;
 }
 
 .konotop a {
@@ -55,28 +66,37 @@ body {
 }
 
 /* --- MAIN CONTENT (ФОРМА) --- */
+.container {
+    flex: 1; /* Розтягує контент, щоб притиснути футер */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .order-container {
     max-width: 600px;
+    width: 100%;
     margin: 40px auto;
     padding: 20px;
-    font-family: "Abel", sans-serif;
 }
 
 .order-title {
     color: #b67b73;
     margin-bottom: 10px;
     text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
 }
 
 .back-link {
     display: block;
     width: fit-content;
-    margin: 20px auto;
+    margin: 10px auto 30px auto;
     text-decoration: none;
     color: #46a71c;
     font-weight: bold;
     text-align: center;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .back-link:hover {
@@ -88,33 +108,50 @@ body {
 .order-form {
     width: 100%;
     max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: 0 auto;
+    padding: 30px;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f9f9f9;
 }
 
-
 .form-group {
-    text-align: center;
-    color: #8b0000;
+    text-align: left; /* Змінив на ліво для кращої читаємості лейблів */
+    color: #4b1f17;
     margin-bottom: 20px;
 }
 
 .form-label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #8b0000;
 }
 
-.form-input, .form-select, .form-input-date, .form-textarea {
+.form-input, 
+.form-select, 
+.form-input-date, 
+.form-textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    outline: none;
+}
+
+.form-input:focus, 
+.form-select:focus, 
+.form-textarea:focus {
+    border-color: #f6877d;
+}
+
+.form-textarea {
+    height: 100px;
+    resize: vertical;
 }
 
 .button-submit {
@@ -122,23 +159,27 @@ body {
     padding: 15px;
     background-color: #ff7f7f;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px; /* Зробив більш закругленою як на інших сторінках */
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 127, 127, 0.3);
 }
 
 .button-submit:hover {
     background-color: #e66060;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 96, 96, 0.4);
 }
 
 /* 6. Футер */
 .footer {
-    padding: 10px 0;
+    padding: 20px 0;
     background-color: #fff;
     border-top: 1px solid #eee;
-    position: relative;
-    z-index: 10;
+    margin-top: auto;
 }
 
 .footer-container {
@@ -155,9 +196,14 @@ body {
 }
 
 .social-links img {
-    width: 40px;
+    width: 35px;
     height: auto;
     transition: 0.3s;
+}
+
+.social-links img:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
 }
 
 /* 7. Адаптація для мобільних пристроїв */
@@ -166,7 +212,6 @@ body {
         flex-direction: column;
         padding: 20px;
         gap: 15px;
-        text-align: center;
     }
 
     .navigation ul {
@@ -176,31 +221,28 @@ body {
     }
 
     .order-container {
-        width: 95%;
-        margin: 20px auto;
-        padding: 15px;
+        width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+    }
+
+    .order-form {
+        padding: 20px;
     }
 
     .order-title {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .form-input, 
     .form-select, 
     .form-input-date, 
     .form-textarea {
-        padding: 15px;
-        font-size: 16px;
+        padding: 12px;
     }
 
     .button-submit {
-        width: 100%;
-        padding: 18px;
-        font-size: 20px;
-    }
-
-    .footer {
-        margin-top: 40px;
+        padding: 15px;
+        font-size: 18px;
     }
 }
-
