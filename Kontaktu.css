@@ -1,4 +1,4 @@
-/* 1. Глобальні налаштування */
+/* 1. Глобальні налаштування (Box Model) */
 * {
     margin: 0;
     padding: 0;
@@ -8,18 +8,18 @@
 body {
     font-family: "Abel", sans-serif;
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    color: #444;
+    width: 100%;
+    overflow-x: hidden; /* Запобігає горизонтальній прокрутці */
 }
 
-/* 2. Шапка (Header) */
+/* 2. Шапка (Header) - Flexbox */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 60px;
-    border-bottom: 1px solid #eee;
+    width: 100%;
 }
 
 .logo img {
@@ -30,124 +30,191 @@ body {
 .navigation ul {
     list-style: none;
     display: flex;
-    gap: 40px;
+    gap: 50px;
 }
 
 .navigation a {
     text-decoration: none;
     color: #b67b73;
     font-size: 20px;
-    transition: 0.3s;
+    line-height: 1.2;
 }
 
-.navigation a:hover {
-    color: #f8b489;
-}
-
-/* 3. Головний контент */
-main {
-    flex: 1;
+.konotop {
     display: flex;
-    padding: 60px;
-    gap: 40px;
+    align-items: center;
+    gap: 10px;
 }
 
+.konotop a {
+    color: #f8b489;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* 3. Секція контактів (Box Model) */
 .contact-info {
-    flex: 1;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-bottom: 30px;
 }
 
 .contact-info h1 {
     color: #b67b73;
-    font-size: 42px;
+    font-size: 32px;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .contact-info p {
     font-size: 18px;
-    margin-bottom: 15px;
-    color: #4b1f17;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.contact-info a {
+    color: #b67b73;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Псевдоклас стану */
+.contact-info a:hover {
+    background-color: #f8b489;
+    color: #fff;
+}
+
+.contact-info strong {
+    color: #2c3e50;
+    min-width: 100px;
+}
+
+/* 4. Кнопка */
 .button {
     display: inline-block;
     background-color: #f6877d;
-    color: white !important;
-    padding: 15px 40px;
+    padding: 15px 45px;
     border-radius: 30px;
     text-decoration: none;
+    font-size: 22px;
     font-weight: bold;
-    margin-top: 20px;
-    transition: 0.3s;
-}
-
-/* 4. Секція карти */
-.map {
-    flex: 1.2;
-}
-
-.map iframe {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease;
 }
 
 /* 5. Футер */
 .footer {
-    padding: 20px 0;
+    padding: 15px 0;
+    background-color: #fff;
     border-top: 1px solid #eee;
-    margin-top: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .footer-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .social-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
-.social-links img { width: 35px; }
+.social-links img {
+    width: 40px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
 
-/* 6. АДАПТАЦІЯ (Карта залишається на своєму місці) */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
+    /* 1. Налаштовуємо відступи блоку без рамки */
+    .contact-info {
+        padding: 20px 0; /* Зменшуємо внутрішні відступи, бо рамки немає */
+        margin: 0;       /* Прибираємо зовнішні відступи, щоб текст був ближче до країв */
+        border: none;    /* Гарантуємо відсутність ліній */
+        text-align: center; /* На мобільному заголовок краще виглядає по центру */
+    }
+
+    /* 2. Заголовок "КОНТАКТИ" */
+    .contact-info h1 {
+        font-size: 24px; /* Зменшуємо шрифт для малих екранів */
+        margin-bottom: 20px;
+    }
+
+    /* 3. Список контактів (Адреса, тел, пошта) */
+    .contact-info p {
+        font-size: 16px;
+        flex-direction: column; /* Ставимо іконку над текстом або просто в стовпчик */
+        align-items: center;    /* Центруємо елементи */
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    /* 4. Робимо кнопку на весь екран */
+    .button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+    }
+}
+
+
+/* Доповнення до вашої існуючої адаптації */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Виправляємо Header (Шапку) */
     .header {
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
+        flex-direction: column; /* Елементи стають один під одним */
+        padding: 20px 15px;      /* Зменшуємо великі відступи 60px до 15px */
+        gap: 20px;
+        height: auto;
     }
 
+    .logo img {
+        height: 70px; /* Трохи зменшуємо логотип для мобільного */
+    }
+
+    /* 2. Навігаційне меню */
     .navigation ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    main {
-        flex-direction: column; /* Елементи стають один під одного */
-        padding: 30px 20px;
+        flex-direction: column; /* Пункти меню в стовпчик */
+        gap: 15px;              /* Зменшуємо відстань між посиланнями */
+        align-items: center;
         text-align: center;
     }
 
-    .contact-info {
-        order: 1; /* Текст буде першим (як у HTML) */
-        width: 100%;
+    .navigation a {
+        font-size: 18px; /* Трохи менший шрифт для екрана телефону */
     }
 
-    .map {
-        order: 2; /* Карта буде другою (як у HTML) */
-        width: 100%;
-        margin-top: 20px;
+    /* 3. Локація (Конотоп) */
+    .konotop {
+        justify-content: center;
+        margin-top: 10px;
     }
 
+    /* 4. Карта (iframe) */
     .map iframe {
-        height: 300px; /* Компактна висота для телефону */
+        height: 300px; /* Зменшуємо висоту карти, щоб вона не займала весь екран */
+        border-radius: 10px; /* Трохи менший радіус для гармонії */
     }
 
-    .button {
-        width: 100%;
-        max-width: 280px;
+    /* 5. Футер */
+    .social-links {
+        gap: 30px; /* Робимо іконки трохи далі одна від одної, щоб зручніше натискати пальцем */
+    }
+    
+    .social-links img {
+        width: 45px; /* Збільшуємо розмір іконок для тачскріна */
     }
 }
